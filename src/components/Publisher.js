@@ -1,6 +1,7 @@
 import React from 'react';
 import { OTPublisher } from 'opentok-react';
 import CheckBox from './CheckBox';
+import { Container } from 'semantic-ui-react'
 
 class Publisher extends React.Component {
     constructor(props) {
@@ -30,7 +31,7 @@ class Publisher extends React.Component {
    
       render() {
         return (
-          <div className="publisher">
+          <Container>
             Publisher
             {this.state.error ? <div id="error">{this.state.error}</div> : null}
             <OTPublisher
@@ -55,7 +56,7 @@ class Publisher extends React.Component {
                 initialChecked={this.state.video}
                 onChange={this.setVideo}
                 />
-          </div>
+          </Container>
         )};
   }
   export default Publisher;
