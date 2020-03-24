@@ -1,7 +1,8 @@
 import React from 'react';
-import { OTPublisher } from 'opentok-react';
+import { OTPublisher, OTSubscriber } from 'opentok-react';
 import CheckBox from './CheckBox';
 import { Container } from 'semantic-ui-react'
+import '../pages/chat.css';
 
 class Publisher extends React.Component {
     constructor(props) {
@@ -31,32 +32,16 @@ class Publisher extends React.Component {
    
       render() {
         return (
-          <Container>
-            Publisher
-            {this.state.error ? <div id="error">{this.state.error}</div> : null}
-            <OTPublisher
+      
+             <OTPublisher 
               properties={{
-                publishAudio: this.state.audio,
-                publishVideo: this.state.video,
-                videoSource: this.state.videoSource === 'screen' ? 'screen' : undefined
-              }}
-              onError={this.onError}
-            />
-            <CheckBox
-                label="Share Screen"
-                onChange={this.changeVideoSource}
-                />
-                <CheckBox
-                label="Publish Audio"
-                initialChecked={this.state.audio}
-                onChange={this.setAudio}
-                />
-                <CheckBox
-                label="Publish Video"
-                initialChecked={this.state.video}
-                onChange={this.setVideo}
-                />
-          </Container>
+                publishAudio: false,
+                publishVideo: true,
+                videoSource: this.state.videoSource === 'screen' ? 'screen' : undefined,
+                height: '100vh',
+                width: '100vw'
+              }}></OTPublisher>
+
         )};
   }
   export default Publisher;

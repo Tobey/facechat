@@ -52,7 +52,6 @@ class Home extends React.Component {
             </Grid.Column>
         </Grid.Row>
         <Grid.Row columns={1} centered>
-         {this.props.children}
         </Grid.Row>
       </Grid>
   
