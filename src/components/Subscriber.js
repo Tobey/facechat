@@ -28,21 +28,15 @@ class Subscriber extends React.Component {
  
   render() {
     return (
-      <Container 
-      className="subscriber"
-      style={{border: "2px solid red", zIndex: 3}}
-      >
-        Subscriber
-        {this.state.error ? <div id="error">{this.state.error}</div> : null}
+
         <OTSubscriber
           properties={{
             subscribeToAudio: this.state.audio,
-            subscribeToVideo: true
+            height: '100vh',
+            width: '100vw',
           }}
-          
           onError={this.onError}
         />
-      </Container>
     );
   }
 }

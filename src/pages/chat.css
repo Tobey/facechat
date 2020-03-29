@@ -1,27 +1,20 @@
-/* 
-  .connectionStatus {
-    padding-top: 20px;
-    margin-left: 5%;
-    font-size: 1.5em;
-  }
+
   .subscriber {
-    margin-left: 10%;
-    width: '100%';
-    height: '100%';
+  
   }
   .publisher {
+
+  }
+
+  .OT_publisher, .OT_subscriber {
+    position: absolute !important;
+    
+  }
+
+  .OT_subscriber {
     float: right;
-    margin-right: 10%;
-    width: '100%';
-    height: '100%';
-  } */
-
-  .OTPublisherContainer {
-
-  }
-  #publisherContainer{
-  }
-
+  } 
+  
   #error {
     color: red;
   } 

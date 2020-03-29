@@ -32,15 +32,16 @@ class Publisher extends React.Component {
    
       render() {
         return (
-      
              <OTPublisher 
               properties={{
                 publishAudio: false,
                 publishVideo: true,
                 videoSource: this.state.videoSource === 'screen' ? 'screen' : undefined,
-                height: '100vh',
-                width: '100vw'
-              }}></OTPublisher>
+                height: '30vh',
+                width: '30vw',
+              }}
+
+          ></OTPublisher>
 
         )};
   }
