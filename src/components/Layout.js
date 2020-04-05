@@ -12,14 +12,31 @@ import {
   Header,
   Rating,
   Statistic,
-  Segment
+  Segment,
+  Progress
   } from 'semantic-ui-react'
 
-import profile from './profile.jpg';
+import { CircularProgressbar, buildStyles  } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 
 
-
+const Progressbar = () => (
+  <CircularProgressbar
+  value={66}
+  text={`3:32`}
+  // circleRatio={0.5}
+  styles={buildStyles({
+    strokeLinecap: 'butt',
+    textSize: '14px',
+    pathTransitionDuration: 0.5,
+    pathColor: `rgba(62, 152, 199, ${200 / 100})`,
+    textColor: '#d62d20',
+    trailColor: '#d6d6d6',
+    backgroundColor: '#3e98c7',
+  })}
+/>
+)
 class HomeLayout extends React.Component {
     render() {
       return (
@@ -28,12 +45,11 @@ class HomeLayout extends React.Component {
           {/* top  profile row  */}
           <Grid.Row centered columns={1}>
             <Grid.Column>
-              <Image src={profile} centered rounded  size='small'/>
+              <Image src={"https://semantic-ui.com/images/avatar2/large/kristy.png"} centered rounded  size='medium'/>
             </Grid.Column>
-          <Rating icon='star' defaultRating={1} maxRating={3} />
+          <Rating icon='star' defaultRating={2} maxRating={3} />
         <Statistic size='tiny'>
-            <Statistic.Value> 52</Statistic.Value>
-            <Statistic.Label>  <Icon name='eye' size='smalll'/></Statistic.Label>
+
           </Statistic>
   
           </Grid.Row>
@@ -57,21 +73,30 @@ class HomeLayout extends React.Component {
                   <Item.Content>
                   <Item.Meta>Description</Item.Meta>
                   </Item.Content>
-                  <Item.Description color="yellow">  More stuff here </Item.Description>
-                  <Button color='red' content='39'
-                      label={{ basic: true, color: 'red', pointing: 'left', content: '🔥' }}
-                    />
+                  <Item.Description color="yellow"> More stuff here </Item.Description>
+                  <Statistic size='tiny' color='olive' >
+                  <Statistic.Value>
+                    <Icon name='pound sign'/> 500
+                  </Statistic.Value>
+                  <Statistic.Label>limited offer</Statistic.Label>
+                </Statistic>
                 </Item> 
             </Grid.Column>
           </Grid.Row>
-          
+          <Grid.Row columns={1} centered>
+              <Grid.Column verticalAlign='middle' width={6}>  
+              <Progressbar/>
+          </Grid.Column>
+          </Grid.Row>
           {/* Live Actions */}
-          <Grid.Row columns={2} centered >
-              <Grid.Column >
-              <Button circular icon="phone" size="massive" color="green" href="/chat/">
+          <Grid.Row columns={1} centered>
+              <Grid.Column verticalAlign='middle'>
+              <Button  size="medium" color="blue" href="/chat/"
+                style={{whiteSpace: "nowrap"}}
+              >
+                  place a bid 
               </Button>
-              </Grid.Column>
-              <Grid.Column >
+         
               </Grid.Column>
               
           </Grid.Row>
