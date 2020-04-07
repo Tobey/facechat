@@ -1,4 +1,6 @@
 import React from 'react';
+import  { NavLink,
+} from "react-router-dom"
 
 import { 
   Grid, 
@@ -91,11 +93,13 @@ class HomeLayout extends React.Component {
           {/* Live Actions */}
           <Grid.Row columns={1} centered>
               <Grid.Column verticalAlign='middle'>
-              <Button  size="medium" color="blue" href="/chat/"
-                style={{whiteSpace: "nowrap"}}
-              >
-                  place a bid 
-              </Button>
+              <NavLink to="/chat/">  
+                <Button  size="medium" color="blue"
+                  style={{whiteSpace: "nowrap"}}
+                >
+                  place a bid  
+                </Button>
+              </NavLink>
          
               </Grid.Column>
               

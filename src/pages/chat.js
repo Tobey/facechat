@@ -12,10 +12,10 @@ render() {
   return (
     <OTSession
         apiKey={config.API_KEY}
-    sessionId={config.SESSION_ID}
-    token={config.TOKEN}
-    eventHandlers={this.sessionEvents}
-    onError={this.onError}
+        sessionId={config.SESSION_ID}
+        token={config.TOKEN}
+        eventHandlers={this.sessionEvents}
+        onError={this.onError}
     >
         <OTStreams>
           <Subscriber/>
