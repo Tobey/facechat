@@ -1,15 +1,15 @@
 {
-    "facechat": {
+    "dev": {
         "awscloudformation": {
-            "AuthRoleName": "amplify-facechat-facechat-10155-authRole",
-            "UnauthRoleArn": "arn:aws:iam::133409594733:role/amplify-facechat-facechat-10155-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::133409594733:role/amplify-facechat-facechat-10155-authRole",
+            "AuthRoleName": "amplify-facechat-dev-173709-authRole",
+            "UnauthRoleArn": "arn:aws:iam::133409594733:role/amplify-facechat-dev-173709-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::133409594733:role/amplify-facechat-dev-173709-authRole",
             "Region": "eu-west-2",
-            "DeploymentBucketName": "amplify-facechat-facechat-10155-deployment",
-            "UnauthRoleName": "amplify-facechat-facechat-10155-unauthRole",
-            "StackName": "amplify-facechat-facechat-10155",
-            "StackId": "arn:aws:cloudformation:eu-west-2:133409594733:stack/amplify-facechat-facechat-10155/d4b78500-7799-11ea-ad69-0aea06869730",
-            "AmplifyAppId": "d2k0aj6aiqufqr"
+            "DeploymentBucketName": "amplify-facechat-dev-173709-deployment",
+            "UnauthRoleName": "amplify-facechat-dev-173709-unauthRole",
+            "StackName": "amplify-facechat-dev-173709",
+            "StackId": "arn:aws:cloudformation:eu-west-2:133409594733:stack/amplify-facechat-dev-173709/31c3c0f0-79b7-11ea-b25e-06b0998bdefc",
+            "AmplifyAppId": "d1bn4rbpsf5pxq"
         }
     }
 }
