@@ -1,0 +1,11 @@
+{
+    "AppSyncApiName": "facechat",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": "false",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authfacechatafae4e5f",
+            "Outputs.UserPoolId"
+        ]
+    }
+}

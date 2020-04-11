@@ -10,6 +10,17 @@
             "StackName": "amplify-facechat-dev-173709",
             "StackId": "arn:aws:cloudformation:eu-west-2:133409594733:stack/amplify-facechat-dev-173709/31c3c0f0-79b7-11ea-b25e-06b0998bdefc",
             "AmplifyAppId": "d1bn4rbpsf5pxq"
+        },
+        "categories": {
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "d1bn4rbpsf5pxq",
+                    "type": "cicd"
+                }
+            },
+            "auth": {
+                "facechatafae4e5f": {}
+            }
         }
     }
 }
