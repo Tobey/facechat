@@ -8,6 +8,7 @@ type Influencer
     owner: String
     sessionId: String
     price: Float
+    thing: String @function(name: "facechatbe-${env")
 }
 
 type Fan
@@ -31,5 +32,6 @@ type FacechatSession
 }
 
 type QueryTest {
-  getInfluencer(username: String): String @function(name: "facechatbe-${env}")
+  getInfluencer(username: String): String @function(name: "facechatbe-${env")
+  # getInfluencer(username: String): String @function(name: "facechatbe-${env}")
 }

@@ -2,6 +2,7 @@
     "permissions": {
         "auth": {
             "facechatafae4e5f": [
+                "create",
                 "read"
             ]
         },

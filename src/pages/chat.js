@@ -19,8 +19,8 @@ render() {
     >
         <OTStreams>
           <Subscriber/>
+          <Publisher/>
         </OTStreams>
-            <Publisher/>
 
         </OTSession>
 
