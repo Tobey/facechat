@@ -1,0 +1,33 @@
+{
+    "permissions": {
+        "auth": {
+            "facechatafae4e5f": [
+                "read"
+            ]
+        },
+        "api": {
+            "facechat": [
+                "create",
+                "read",
+                "update"
+            ]
+        },
+        "storage": {
+            "Influencer:@model(appsync)": [
+                "create",
+                "read",
+                "update"
+            ],
+            "Fan:@model(appsync)": [
+                "create",
+                "read",
+                "update"
+            ],
+            "FacechatSession:@model(appsync)": [
+                "create",
+                "read",
+                "update"
+            ]
+        }
+    }
+}

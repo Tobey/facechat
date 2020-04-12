@@ -1,59 +1,140 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateTask = /* GraphQL */ `
-  subscription OnCreateTask {
-    onCreateTask {
+export const onCreateInfluencer = /* GraphQL */ `
+  subscription OnCreateInfluencer($owner: String!) {
+    onCreateInfluencer(owner: $owner) {
       id
-      title
-      description
-      status
+      name
+      username
+      owner
+      sessionId
+      price
     }
   }
 `;
-export const onUpdateTask = /* GraphQL */ `
-  subscription OnUpdateTask {
-    onUpdateTask {
+export const onUpdateInfluencer = /* GraphQL */ `
+  subscription OnUpdateInfluencer($owner: String!) {
+    onUpdateInfluencer(owner: $owner) {
       id
-      title
-      description
-      status
+      name
+      username
+      owner
+      sessionId
+      price
     }
   }
 `;
-export const onDeleteTask = /* GraphQL */ `
-  subscription OnDeleteTask {
-    onDeleteTask {
+export const onDeleteInfluencer = /* GraphQL */ `
+  subscription OnDeleteInfluencer($owner: String!) {
+    onDeleteInfluencer(owner: $owner) {
       id
-      title
-      description
-      status
+      name
+      username
+      owner
+      sessionId
+      price
     }
   }
 `;
-export const onCreatePrivateNote = /* GraphQL */ `
-  subscription OnCreatePrivateNote($owner: String!) {
-    onCreatePrivateNote(owner: $owner) {
+export const onCreateFan = /* GraphQL */ `
+  subscription OnCreateFan($owner: String!) {
+    onCreateFan(owner: $owner) {
       id
-      content
+      name
+      username
       owner
     }
   }
 `;
-export const onUpdatePrivateNote = /* GraphQL */ `
-  subscription OnUpdatePrivateNote($owner: String!) {
-    onUpdatePrivateNote(owner: $owner) {
+export const onUpdateFan = /* GraphQL */ `
+  subscription OnUpdateFan($owner: String!) {
+    onUpdateFan(owner: $owner) {
       id
-      content
+      name
+      username
       owner
     }
   }
 `;
-export const onDeletePrivateNote = /* GraphQL */ `
-  subscription OnDeletePrivateNote($owner: String!) {
-    onDeletePrivateNote(owner: $owner) {
+export const onDeleteFan = /* GraphQL */ `
+  subscription OnDeleteFan($owner: String!) {
+    onDeleteFan(owner: $owner) {
       id
-      content
+      name
+      username
+      owner
+    }
+  }
+`;
+export const onCreateFacechatSession = /* GraphQL */ `
+  subscription OnCreateFacechatSession($owner: String!) {
+    onCreateFacechatSession(owner: $owner) {
+      influencerId
+      influencer {
+        id
+        name
+        username
+        owner
+        sessionId
+        price
+      }
+      fanId
+      fan {
+        id
+        name
+        username
+        owner
+      }
+      duration
+      owner
+    }
+  }
+`;
+export const onUpdateFacechatSession = /* GraphQL */ `
+  subscription OnUpdateFacechatSession($owner: String!) {
+    onUpdateFacechatSession(owner: $owner) {
+      influencerId
+      influencer {
+        id
+        name
+        username
+        owner
+        sessionId
+        price
+      }
+      fanId
+      fan {
+        id
+        name
+        username
+        owner
+      }
+      duration
+      owner
+    }
+  }
+`;
+export const onDeleteFacechatSession = /* GraphQL */ `
+  subscription OnDeleteFacechatSession($owner: String!) {
+    onDeleteFacechatSession(owner: $owner) {
+      influencerId
+      influencer {
+        id
+        name
+        username
+        owner
+        sessionId
+        price
+      }
+      fanId
+      fan {
+        id
+        name
+        username
+        owner
+      }
+      duration
       owner
     }
   }

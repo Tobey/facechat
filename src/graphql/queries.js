@@ -1,52 +1,125 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getTask = /* GraphQL */ `
-  query GetTask($id: ID!) {
-    getTask(id: $id) {
+export const getInfluencer = /* GraphQL */ `
+  query GetInfluencer($username: String!) {
+    getInfluencer(username: $username) {
       id
-      title
-      description
-      status
+      name
+      username
+      owner
+      sessionId
+      price
     }
   }
 `;
-export const listTasks = /* GraphQL */ `
-  query ListTasks(
-    $filter: ModelTaskFilterInput
+export const listInfluencers = /* GraphQL */ `
+  query ListInfluencers(
+    $username: String
+    $filter: ModelInfluencerFilterInput
     $limit: Int
     $nextToken: String
+    $sortDirection: ModelSortDirection
   ) {
-    listTasks(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listInfluencers(
+      username: $username
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
       items {
         id
-        title
-        description
-        status
+        name
+        username
+        owner
+        sessionId
+        price
       }
       nextToken
     }
   }
 `;
-export const getPrivateNote = /* GraphQL */ `
-  query GetPrivateNote($id: ID!) {
-    getPrivateNote(id: $id) {
+export const getFan = /* GraphQL */ `
+  query GetFan($id: ID!) {
+    getFan(id: $id) {
       id
-      content
+      name
+      username
       owner
     }
   }
 `;
-export const listPrivateNotes = /* GraphQL */ `
-  query ListPrivateNotes(
-    $filter: ModelPrivateNoteFilterInput
+export const listFans = /* GraphQL */ `
+  query ListFans(
+    $filter: ModelFanFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listPrivateNotes(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listFans(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        content
+        name
+        username
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const getFacechatSession = /* GraphQL */ `
+  query GetFacechatSession($id: ID!) {
+    getFacechatSession(id: $id) {
+      influencerId
+      influencer {
+        id
+        name
+        username
+        owner
+        sessionId
+        price
+      }
+      fanId
+      fan {
+        id
+        name
+        username
+        owner
+      }
+      duration
+      owner
+    }
+  }
+`;
+export const listFacechatSessions = /* GraphQL */ `
+  query ListFacechatSessions(
+    $filter: ModelFacechatSessionFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listFacechatSessions(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        influencerId
+        influencer {
+          id
+          name
+          username
+          owner
+          sessionId
+          price
+        }
+        fanId
+        fan {
+          id
+          name
+          username
+          owner
+        }
+        duration
         owner
       }
       nextToken

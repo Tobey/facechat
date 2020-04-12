@@ -1,77 +1,167 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createTask = /* GraphQL */ `
-  mutation CreateTask(
-    $input: CreateTaskInput!
-    $condition: ModelTaskConditionInput
+export const createInfluencer = /* GraphQL */ `
+  mutation CreateInfluencer(
+    $input: CreateInfluencerInput!
+    $condition: ModelInfluencerConditionInput
   ) {
-    createTask(input: $input, condition: $condition) {
+    createInfluencer(input: $input, condition: $condition) {
       id
-      title
-      description
-      status
+      name
+      username
+      owner
+      sessionId
+      price
     }
   }
 `;
-export const updateTask = /* GraphQL */ `
-  mutation UpdateTask(
-    $input: UpdateTaskInput!
-    $condition: ModelTaskConditionInput
+export const updateInfluencer = /* GraphQL */ `
+  mutation UpdateInfluencer(
+    $input: UpdateInfluencerInput!
+    $condition: ModelInfluencerConditionInput
   ) {
-    updateTask(input: $input, condition: $condition) {
+    updateInfluencer(input: $input, condition: $condition) {
       id
-      title
-      description
-      status
+      name
+      username
+      owner
+      sessionId
+      price
     }
   }
 `;
-export const deleteTask = /* GraphQL */ `
-  mutation DeleteTask(
-    $input: DeleteTaskInput!
-    $condition: ModelTaskConditionInput
+export const deleteInfluencer = /* GraphQL */ `
+  mutation DeleteInfluencer(
+    $input: DeleteInfluencerInput!
+    $condition: ModelInfluencerConditionInput
   ) {
-    deleteTask(input: $input, condition: $condition) {
+    deleteInfluencer(input: $input, condition: $condition) {
       id
-      title
-      description
-      status
+      name
+      username
+      owner
+      sessionId
+      price
     }
   }
 `;
-export const createPrivateNote = /* GraphQL */ `
-  mutation CreatePrivateNote(
-    $input: CreatePrivateNoteInput!
-    $condition: ModelPrivateNoteConditionInput
+export const createFan = /* GraphQL */ `
+  mutation CreateFan(
+    $input: CreateFanInput!
+    $condition: ModelFanConditionInput
   ) {
-    createPrivateNote(input: $input, condition: $condition) {
+    createFan(input: $input, condition: $condition) {
       id
-      content
+      name
+      username
       owner
     }
   }
 `;
-export const updatePrivateNote = /* GraphQL */ `
-  mutation UpdatePrivateNote(
-    $input: UpdatePrivateNoteInput!
-    $condition: ModelPrivateNoteConditionInput
+export const updateFan = /* GraphQL */ `
+  mutation UpdateFan(
+    $input: UpdateFanInput!
+    $condition: ModelFanConditionInput
   ) {
-    updatePrivateNote(input: $input, condition: $condition) {
+    updateFan(input: $input, condition: $condition) {
       id
-      content
+      name
+      username
       owner
     }
   }
 `;
-export const deletePrivateNote = /* GraphQL */ `
-  mutation DeletePrivateNote(
-    $input: DeletePrivateNoteInput!
-    $condition: ModelPrivateNoteConditionInput
+export const deleteFan = /* GraphQL */ `
+  mutation DeleteFan(
+    $input: DeleteFanInput!
+    $condition: ModelFanConditionInput
   ) {
-    deletePrivateNote(input: $input, condition: $condition) {
+    deleteFan(input: $input, condition: $condition) {
       id
-      content
+      name
+      username
+      owner
+    }
+  }
+`;
+export const createFacechatSession = /* GraphQL */ `
+  mutation CreateFacechatSession(
+    $input: CreateFacechatSessionInput!
+    $condition: ModelFacechatSessionConditionInput
+  ) {
+    createFacechatSession(input: $input, condition: $condition) {
+      influencerId
+      influencer {
+        id
+        name
+        username
+        owner
+        sessionId
+        price
+      }
+      fanId
+      fan {
+        id
+        name
+        username
+        owner
+      }
+      duration
+      owner
+    }
+  }
+`;
+export const updateFacechatSession = /* GraphQL */ `
+  mutation UpdateFacechatSession(
+    $input: UpdateFacechatSessionInput!
+    $condition: ModelFacechatSessionConditionInput
+  ) {
+    updateFacechatSession(input: $input, condition: $condition) {
+      influencerId
+      influencer {
+        id
+        name
+        username
+        owner
+        sessionId
+        price
+      }
+      fanId
+      fan {
+        id
+        name
+        username
+        owner
+      }
+      duration
+      owner
+    }
+  }
+`;
+export const deleteFacechatSession = /* GraphQL */ `
+  mutation DeleteFacechatSession(
+    $input: DeleteFacechatSessionInput!
+    $condition: ModelFacechatSessionConditionInput
+  ) {
+    deleteFacechatSession(input: $input, condition: $condition) {
+      influencerId
+      influencer {
+        id
+        name
+        username
+        owner
+        sessionId
+        price
+      }
+      fanId
+      fan {
+        id
+        name
+        username
+        owner
+      }
+      duration
       owner
     }
   }

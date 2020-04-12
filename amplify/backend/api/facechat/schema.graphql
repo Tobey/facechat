@@ -1,19 +1,35 @@
-type Task 
+type Influencer 
   @model 
-  @auth(rules: [
-      {allow: groups, groups: ["Managers"], queries: null, mutations: [create, update, delete]},
-      {allow: groups, groups: ["Employees"], queries: [get, list], mutations: null}
-    ])
-{
-  id: ID!
-  title: String!
-  description: String
-  status: String
+  @auth(rules: [{allow: owner, operations: [create, update, delete]}]) 
+  @key(fields: ["username"]) {
+    id: ID!
+    name: String!
+    username: String!
+    owner: String
+    sessionId: String
+    price: Float
 }
-type PrivateNote
+
+type Fan
+  @model 
+  @auth(rules: [{allow: owner}]) {
+    id: ID!
+    name: String!
+    username: String!
+    owner: String
+}
+
+type FacechatSession 
   @model
-  @auth(rules: [{allow: owner}])
-{
-  id: ID!
-  content: String!
+  @auth(rules: [{allow: owner}]){
+    influencerId: String!
+    influencer: Influencer @connection(fields: ["influencerId"])
+    fanId: ID!
+    fan: Fan @connection(fields: ["fanId"])
+    duration: Float
+    owner: String
+}
+
+type QueryTest {
+  getInfluencer(username: String): String @function(name: "facechatbe-${env}")
 }

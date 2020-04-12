@@ -16,6 +16,12 @@ import AmplifyRouter from 'amplify-react-router';
 
 Amplify.configure(config)
 
+Amplify.configure({
+  API: {
+    graphql_endpoint: 'https:/www.example.com/my-graphql-endpoint'
+  }
+});
+
   const routes = (
     <Router  >
     <Switch>
