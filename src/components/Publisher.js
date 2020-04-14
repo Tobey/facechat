@@ -9,12 +9,12 @@ class Publisher extends React.Component {
       super(props);
       this.state = {
         error: null,
-        audio: true,
+        audio: false,
         video: true,
         videoSource: 'camera'
       };
     }
-    setAudio = (audio) => {
+      setAudio = (audio) => {
         this.setState({ audio });
       }
      
@@ -34,11 +34,13 @@ class Publisher extends React.Component {
         return (
              <OTPublisher 
               properties={{
-                publishAudio: false,
-                publishVideo: true,
+                publishAudio: this.state.audio,
+                publishVideo:  this.state.video,
                 videoSource: this.state.videoSource === 'screen' ? 'screen' : undefined,
                 height: '30vh',
                 width: '30vw',
+                // height: '100vh',
+                // width: '100vw',
               }}
 
           ></OTPublisher>

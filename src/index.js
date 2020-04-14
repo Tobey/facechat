@@ -15,11 +15,6 @@ import AmplifyRouter from 'amplify-react-router';
 
 
 Amplify.configure(config)
-Amplify.configure({
-  API: {
-    graphql_endpoint: config.aws_appsync_graphqlEndpoint
-  }
-});
 
   const routes = (
     <Router  >

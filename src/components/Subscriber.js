@@ -1,7 +1,5 @@
 import React from 'react';
 import { OTSubscriber } from 'opentok-react';
-import CheckBox from './CheckBox';
-import { Container } from 'semantic-ui-react';
  
 class Subscriber extends React.Component {
   constructor(props) {
@@ -9,7 +7,7 @@ class Subscriber extends React.Component {
  
     this.state = {
       error: null,
-      audio: true,
+      audio: false,
       video: true
     };
   }
@@ -32,7 +30,7 @@ class Subscriber extends React.Component {
         <OTSubscriber
           properties={{
             subscribeToAudio: this.state.audio,
-            subscribeToVideo: true,
+            subscribeToVideo: this.state.video,
             height: '100vh',
             width: '100vw',
           }}

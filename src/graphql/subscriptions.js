@@ -10,6 +10,7 @@ export const onCreateInfluencer = /* GraphQL */ `
       owner
       sessionId
       price
+      getOpenTokSession
     }
   }
 `;
@@ -22,6 +23,7 @@ export const onUpdateInfluencer = /* GraphQL */ `
       owner
       sessionId
       price
+      getOpenTokSession
     }
   }
 `;
@@ -34,6 +36,7 @@ export const onDeleteInfluencer = /* GraphQL */ `
       owner
       sessionId
       price
+      getOpenTokSession
     }
   }
 `;
@@ -44,6 +47,7 @@ export const onCreateFan = /* GraphQL */ `
       name
       username
       owner
+      getOpenTokSession
     }
   }
 `;
@@ -54,6 +58,7 @@ export const onUpdateFan = /* GraphQL */ `
       name
       username
       owner
+      getOpenTokSession
     }
   }
 `;
@@ -64,6 +69,7 @@ export const onDeleteFan = /* GraphQL */ `
       name
       username
       owner
+      getOpenTokSession
     }
   }
 `;
@@ -78,6 +84,7 @@ export const onCreateFacechatSession = /* GraphQL */ `
         owner
         sessionId
         price
+        getOpenTokSession
       }
       fanId
       fan {
@@ -85,6 +92,7 @@ export const onCreateFacechatSession = /* GraphQL */ `
         name
         username
         owner
+        getOpenTokSession
       }
       duration
       owner
@@ -102,6 +110,7 @@ export const onUpdateFacechatSession = /* GraphQL */ `
         owner
         sessionId
         price
+        getOpenTokSession
       }
       fanId
       fan {
@@ -109,6 +118,7 @@ export const onUpdateFacechatSession = /* GraphQL */ `
         name
         username
         owner
+        getOpenTokSession
       }
       duration
       owner
@@ -126,6 +136,7 @@ export const onDeleteFacechatSession = /* GraphQL */ `
         owner
         sessionId
         price
+        getOpenTokSession
       }
       fanId
       fan {
@@ -133,6 +144,7 @@ export const onDeleteFacechatSession = /* GraphQL */ `
         name
         username
         owner
+        getOpenTokSession
       }
       duration
       owner

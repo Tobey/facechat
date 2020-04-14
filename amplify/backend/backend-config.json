@@ -31,27 +31,10 @@
 		}
 	},
 	"function": {
-		"facechatbe": {
+		"func": {
 			"build": true,
 			"providerPlugin": "awscloudformation",
-			"service": "Lambda",
-			"dependsOn": [
-				{
-					"category": "auth",
-					"resourceName": "facechatafae4e5f",
-					"attributes": [
-						"UserPoolId"
-					]
-				},
-				{
-					"category": "api",
-					"resourceName": "facechat",
-					"attributes": [
-						"GraphQLAPIIdOutput",
-						"GraphQLAPIEndpointOutput"
-					]
-				}
-			]
+			"service": "Lambda"
 		}
 	}
 }

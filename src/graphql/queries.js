@@ -1,6 +1,16 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const getOpenTokSession = /* GraphQL */ `
+  query GetOpenTokSession {
+    getOpenTokSession
+  }
+`;
+export const getPublishToken = /* GraphQL */ `
+  query GetPublishToken {
+    getPublishToken
+  }
+`;
 export const getInfluencer = /* GraphQL */ `
   query GetInfluencer($username: String!) {
     getInfluencer(username: $username) {
@@ -10,6 +20,7 @@ export const getInfluencer = /* GraphQL */ `
       owner
       sessionId
       price
+      getOpenTokSession
     }
   }
 `;
@@ -35,6 +46,7 @@ export const listInfluencers = /* GraphQL */ `
         owner
         sessionId
         price
+        getOpenTokSession
       }
       nextToken
     }
@@ -47,6 +59,7 @@ export const getFan = /* GraphQL */ `
       name
       username
       owner
+      getOpenTokSession
     }
   }
 `;
@@ -62,6 +75,7 @@ export const listFans = /* GraphQL */ `
         name
         username
         owner
+        getOpenTokSession
       }
       nextToken
     }
@@ -78,6 +92,7 @@ export const getFacechatSession = /* GraphQL */ `
         owner
         sessionId
         price
+        getOpenTokSession
       }
       fanId
       fan {
@@ -85,6 +100,7 @@ export const getFacechatSession = /* GraphQL */ `
         name
         username
         owner
+        getOpenTokSession
       }
       duration
       owner
@@ -111,6 +127,7 @@ export const listFacechatSessions = /* GraphQL */ `
           owner
           sessionId
           price
+          getOpenTokSession
         }
         fanId
         fan {
@@ -118,6 +135,7 @@ export const listFacechatSessions = /* GraphQL */ `
           name
           username
           owner
+          getOpenTokSession
         }
         duration
         owner
