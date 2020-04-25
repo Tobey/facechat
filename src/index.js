@@ -11,9 +11,6 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import Amplify from 'aws-amplify'
 import config from  './aws-exports'
 
-import AmplifyRouter from 'amplify-react-router';
-
-
 Amplify.configure(config)
 
   const routes = (

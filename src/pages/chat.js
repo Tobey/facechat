@@ -1,21 +1,33 @@
 import React from 'react';
-import 'semantic-ui-css/semantic.min.css';
+
+
 import Publisher from '../components/Publisher';
 import Subscriber  from '../components/Subscriber';
-import config from '../config';
 import { OTSession, OTStreams, preloadScript } from 'opentok-react';
-import './chat.css'
 
-
-import Amplify, { Auth, API, graphqlOperation } from 'aws-amplify';
+import Amplify, { Auth, API, graphqlOperation}from 'aws-amplify';
 import { getOpenTokSession, getPublishToken } from '../graphql/queries';
-import { withAuthenticator } from 'aws-amplify-react'
+import { withAuthenticator, AmplifyTheme } from 'aws-amplify-react'
 
-Amplify.configure(config)
+import CustomAuth  from './auth'
+import awsconfig from '../aws-exports';
+import opentokconfig from '../config';
 
+import { Loader, Dimmer } from 'semantic-ui-react'
+
+import './chat.css'
+import 'semantic-ui-css/semantic.min.css';
+import "@aws-amplify/ui/src/Theme.css";
+import "@aws-amplify/ui/src/Angular.css";
+import "@aws-amplify/ui/dist/style.css";
+
+import { OT } from 'opentok-react';
+
+
+Amplify.configure(awsconfig)
 Amplify.configure({
   API: {
-    graphql_endpoint: config.aws_appsync_graphqlEndpoint,
+    graphql_endpoint: awsconfig.aws_appsync_graphqlEndpoint,
     graphql_headers: async () => {
       const currentSession = await Auth.currentSession();
       return { Authorization: currentSession.getIdToken().getJwtToken() }
@@ -25,18 +37,31 @@ Amplify.configure({
 
 
 class Chat extends React.Component {
-  state = {
-    facechatSession: null,
-    facechatToken: null,
-  }
   
   constructor(props) {
     super(props);
-    // Don't do this!
-    this.state = { color: props.color };
+
+    this.state = {
+      facechatSession: null,
+      facechatToken: null,
+      connectionCount: 0,
+      session: null
+  
+    }
+    this._isMounted = false;
+
+    this.sessionEvents = this.sessionEvents.bind(this);
   }
 
+  componentWillUnmount() {
+    this._isMounted = false;
+ }
   componentDidMount() {
+    this._isMounted = true; // https://stackoverflow.com/questions/52061476/cancel-all-subscriptions-and-asyncs-in-the-componentwillunmount-method-how
+
+    if (!this._isMounted) {
+        return
+    }
     console.log("Mounted s")
     console.log('getOpenTokSession query')
       let s = (async () => {
@@ -56,6 +81,13 @@ class Chat extends React.Component {
 
       console.log('done  with mount')
     }
+
+
+  sessionEvents(f) {
+    console.log("---event---")
+    console.log(f)
+    console.log("--------")
+  }
     
   render() {
 
@@ -63,15 +95,19 @@ class Chat extends React.Component {
       return <div>Loading..</div>
     } else {
       let to =  'cGFydG5lcl9pZD00NjUzMTUzMiZzaWc9MTY2ZmE0Yzk5MTFiYjM5YzI2YzI1MTY1OTYzOTJhNjlmNzU4ZmU4MTpzZXNzaW9uX2lkPTJfTVg0ME5qVXpNVFV6TW41LU1UVTROamczT0RJeE1UUXhOWDVZTlZNMFdteG1NelpNYzNCeWNVNHpRMWhLY1Zoc1JuQi1mZyZjcmVhdGVfdGltZT0xNTg2ODg4MjcxJm5vbmNlPTAuMTc1MDM5NTgxMjEyMTU5JnJvbGU9cHVibGlzaGVyJmV4cGlyZV90aW1lPTE1ODY5NzQ2NzEmY29ubmVjdGlvbl9kYXRhPXVzZXJuYW1lJTNEYm9iJmluaXRpYWxfbGF5b3V0X2NsYXNzX2xpc3Q9'
+      let loading = this.state.connectionCount > 1 ? 'acitve': 'disabled'
       return (
-        <OTSession
-        apiKey={config.API_KEY}
-        sessionId={"2_MX40NjUzMTUzMn5-MTU4Njg3ODIxMTQxNX5YNVM0WmxmMzZMc3BycU4zQ1hKcVhsRnB-fg"}
-        token={this.state.facechatToken || to}
-        eventHandlers={this.sessionEvents}
-        onError={this.onError}
+          <OTSession
+          apiKey={opentokconfig.API_KEY}
+          sessionId={"2_MX40NjUzMTUzMn5-MTU4Njg3ODIxMTQxNX5YNVM0WmxmMzZMc3BycU4zQ1hKcVhsRnB-fg"}
+          token={this.state.facechatToken || to}
+          eventHandlers={this.sessionEvents}
+          onError={this.onError}
     >
 
+        <Dimmer {...loading}>
+          <Loader>Waiting for the second person ..</Loader>
+        </Dimmer>
           <OTStreams>
             <Subscriber/>
         </OTStreams>
@@ -82,4 +118,41 @@ class Chat extends React.Component {
     }
 
 }
-export default withAuthenticator(preloadScript(Chat)) 
+
+
+const authTheme = {
+  ...AmplifyTheme,
+
+  sectionHeader:{
+    ...AmplifyTheme.sectionHeader,
+    color:"red",
+  },
+  formSection: {
+    ...AmplifyTheme.formSection,
+    backgroundColor: "green",
+  },
+  sectionFooter: {
+    ...AmplifyTheme.sectionFooter,
+    backgroundColor: "purple"
+  },
+  button: {
+      ...AmplifyTheme.button,
+      backgroundColor: "blue",
+      color: "blue"
+  }
+}
+
+
+
+console.log(authTheme)
+export default  withAuthenticator(preloadScript(Chat), {
+  includeGreetings: false, 
+  hideDefault: true,
+  // Show only certain components
+  // authenticatorComponents: [MyComponents],
+  // display federation/social provider buttons 
+  // federated: {myFederatedConfig}, 
+  // customize the UI/styling
+  theme: {authTheme},
+})
+
